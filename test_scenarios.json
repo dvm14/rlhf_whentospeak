@@ -1,0 +1,272 @@
+[
+  {
+    "id": "s001",
+    "context": "Two colleagues, Alex and Priya, are debating which project management tool to adopt for their team. They've been going back and forth for a few minutes and seem to be talking past each other.",
+    "option_a": [
+      {"speaker": "Alex", "text": "I just think Jira is overkill for a team our size. We don't need all those features."},
+      {"speaker": "Priya", "text": "But we're going to grow. We need something that scales."},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Alex", "text": "I guess I'm just worried about the learning curve slowing us down right now."},
+      {"speaker": "Priya", "text": "That's fair. Maybe we could do a two-week trial?"}
+    ],
+    "option_b": [
+      {"speaker": "Alex", "text": "I just think Jira is overkill for a team our size. We don't need all those features."},
+      {"speaker": "Priya", "text": "But we're going to grow. We need something that scales."},
+      {"speaker": "Voice Assistant", "text": "Both Jira and Notion have free tiers — would it help if I pulled up a side-by-side comparison of their features for small teams?"},
+      {"speaker": "Alex", "text": "Oh yeah, that would actually help a lot."},
+      {"speaker": "Priya", "text": "Good idea, let's look at that together."}
+    ]
+  },
+  {
+    "id": "s002",
+    "context": "Two friends, Marcus and Lily, are planning a road trip together. They're in the middle of excitedly listing places they want to visit.",
+    "option_a": [
+      {"speaker": "Marcus", "text": "We have to stop at the Grand Canyon — it's non-negotiable."},
+      {"speaker": "Lily", "text": "Yes! And then maybe Sedona on the way back?"},
+      {"speaker": "Voice Assistant", "text": "Sedona is about 2 hours from the Grand Canyon — want me to add it as a stop on your route?"},
+      {"speaker": "Marcus", "text": "Uh, we didn't ask... but sure, I guess?"},
+      {"speaker": "Lily", "text": "Yeah that works, add it."}
+    ],
+    "option_b": [
+      {"speaker": "Marcus", "text": "We have to stop at the Grand Canyon — it's non-negotiable."},
+      {"speaker": "Lily", "text": "Yes! And then maybe Sedona on the way back?"},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Marcus", "text": "Oh and we should look up camping spots near the South Rim."},
+      {"speaker": "Lily", "text": "Totally, let's figure out the full route tonight."}
+    ]
+  },
+  {
+    "id": "s003",
+    "context": "A student, Jamie, is asking their tutor, Dr. Chen, for help understanding a concept. The tutor is mid-explanation.",
+    "option_a": [
+      {"speaker": "Dr. Chen", "text": "So the key thing about gradient descent is that you're moving in the direction of steepest decline in the loss function."},
+      {"speaker": "Jamie", "text": "Wait, so it's like... rolling downhill?"},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Dr. Chen", "text": "Exactly! That's a great intuition. The learning rate controls how big each step is."},
+      {"speaker": "Jamie", "text": "Oh okay, that makes way more sense now."}
+    ],
+    "option_b": [
+      {"speaker": "Dr. Chen", "text": "So the key thing about gradient descent is that you're moving in the direction of steepest decline in the loss function."},
+      {"speaker": "Jamie", "text": "Wait, so it's like... rolling downhill?"},
+      {"speaker": "Voice Assistant", "text": "That's actually a common analogy — gradient descent is often visualized as a ball rolling down a hill to find the lowest point."},
+      {"speaker": "Dr. Chen", "text": "Yes, exactly that. Though I was about to explain the learning rate..."},
+      {"speaker": "Jamie", "text": "Right, please continue."}
+    ]
+  },
+  {
+    "id": "s004",
+    "context": "Two roommates, Sam and Jordan, are arguing about whose turn it is to do chores. The conversation is getting a little tense.",
+    "option_a": [
+      {"speaker": "Sam", "text": "I did the dishes three times this week. It's definitely your turn."},
+      {"speaker": "Jordan", "text": "I took out the trash and cleaned the bathroom — that counts for something."},
+      {"speaker": "Voice Assistant", "text": "According to the chore schedule you both set last month, this week's dishes are assigned to Jordan."},
+      {"speaker": "Sam", "text": "See! I told you."},
+      {"speaker": "Jordan", "text": "Okay okay, fine, I'll do them tonight."}
+    ],
+    "option_b": [
+      {"speaker": "Sam", "text": "I did the dishes three times this week. It's definitely your turn."},
+      {"speaker": "Jordan", "text": "I took out the trash and cleaned the bathroom — that counts for something."},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Sam", "text": "Maybe we should just write it all down so we stop having this argument."},
+      {"speaker": "Jordan", "text": "Yeah, a shared chore chart would probably help."}
+    ]
+  },
+  {
+    "id": "s005",
+    "context": "A parent, Diana, and her teenage daughter, Zoe, are having a serious conversation about Zoe's plans after high school.",
+    "option_a": [
+      {"speaker": "Diana", "text": "I just worry that taking a gap year will make it harder to get back into study mode."},
+      {"speaker": "Zoe", "text": "But I need time to figure out what I actually want to do. I don't want to waste money on the wrong degree."},
+      {"speaker": "Voice Assistant", "text": "Studies show that students who take structured gap years often report higher college satisfaction and graduation rates."},
+      {"speaker": "Diana", "text": "I didn't ask for statistics right now..."},
+      {"speaker": "Zoe", "text": "Mom, let's just keep talking."}
+    ],
+    "option_b": [
+      {"speaker": "Diana", "text": "I just worry that taking a gap year will make it harder to get back into study mode."},
+      {"speaker": "Zoe", "text": "But I need time to figure out what I actually want to do. I don't want to waste money on the wrong degree."},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Diana", "text": "I hear you. What would you actually do with the year?"},
+      {"speaker": "Zoe", "text": "I was thinking volunteering abroad, maybe some work experience."}
+    ]
+  },
+  {
+    "id": "s006",
+    "context": "Two software engineers, Ravi and Sofia, are doing a code review together over a video call, looking at a function one of them wrote.",
+    "option_a": [
+      {"speaker": "Ravi", "text": "I think this loop could be simplified but I can't remember the exact syntax off the top of my head."},
+      {"speaker": "Sofia", "text": "Is it a list comprehension you're thinking of?"},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Ravi", "text": "Yeah exactly — something like that. Let me just write it out and see if it works."},
+      {"speaker": "Sofia", "text": "Good call, test it and we'll review together."}
+    ],
+    "option_b": [
+      {"speaker": "Ravi", "text": "I think this loop could be simplified but I can't remember the exact syntax off the top of my head."},
+      {"speaker": "Sofia", "text": "Is it a list comprehension you're thinking of?"},
+      {"speaker": "Voice Assistant", "text": "For a simple loop like that, the Python list comprehension syntax would be: `[expression for item in iterable if condition]`."},
+      {"speaker": "Ravi", "text": "Oh perfect, yes that's what I needed."},
+      {"speaker": "Sofia", "text": "Nice, that's much cleaner."}
+    ]
+  },
+  {
+    "id": "s007",
+    "context": "A couple, Ben and Nia, are having a heartfelt conversation about whether to move to a new city for one of their job opportunities.",
+    "option_a": [
+      {"speaker": "Ben", "text": "It's a huge opportunity but I don't want you to feel like I'm dragging you away from everything you've built here."},
+      {"speaker": "Nia", "text": "I appreciate that. I'm just scared of starting over, you know?"},
+      {"speaker": "Voice Assistant", "text": "The average cost of living in Austin is 18% lower than San Francisco, if that helps with the decision."},
+      {"speaker": "Ben", "text": "That's... not really what we're talking about right now."},
+      {"speaker": "Nia", "text": "Yeah, we need a minute."}
+    ],
+    "option_b": [
+      {"speaker": "Ben", "text": "It's a huge opportunity but I don't want you to feel like I'm dragging you away from everything you've built here."},
+      {"speaker": "Nia", "text": "I appreciate that. I'm just scared of starting over, you know?"},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Ben", "text": "We don't have to decide tonight. Let's just keep talking it through."},
+      {"speaker": "Nia", "text": "Yeah. I think I just need to hear that we'd figure it out together."}
+    ]
+  },
+  {
+    "id": "s008",
+    "context": "Three coworkers — Tom, Aisha, and Chris — are brainstorming names for a new product in a meeting room.",
+    "option_a": [
+      {"speaker": "Tom", "text": "What about something that sounds techy but approachable?"},
+      {"speaker": "Aisha", "text": "Like 'Nexus' or 'Pulse'?"},
+      {"speaker": "Voice Assistant", "text": "'Nexus' is already trademarked by several companies in the tech space — 'Pulse' appears available in this category."},
+      {"speaker": "Chris", "text": "Oh that's super useful, good to know early."},
+      {"speaker": "Tom", "text": "Yeah let's keep Pulse on the list then."}
+    ],
+    "option_b": [
+      {"speaker": "Tom", "text": "What about something that sounds techy but approachable?"},
+      {"speaker": "Aisha", "text": "Like 'Nexus' or 'Pulse'?"},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Chris", "text": "I like Pulse. It implies real-time, which fits the product."},
+      {"speaker": "Tom", "text": "And it's memorable. Let's add it to the shortlist."}
+    ]
+  },
+  {
+    "id": "s009",
+    "context": "A doctor, Dr. Patel, is explaining a diagnosis to a patient, Eli, who is visibly nervous and asking lots of questions.",
+    "option_a": [
+      {"speaker": "Dr. Patel", "text": "The results show early-stage hypertension. It's manageable with lifestyle changes."},
+      {"speaker": "Eli", "text": "Is this serious? Should I be worried?"},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Dr. Patel", "text": "It's something to take seriously but not to panic about. Caught early, most people manage it well."},
+      {"speaker": "Eli", "text": "Okay. What do I need to change?"}
+    ],
+    "option_b": [
+      {"speaker": "Dr. Patel", "text": "The results show early-stage hypertension. It's manageable with lifestyle changes."},
+      {"speaker": "Eli", "text": "Is this serious? Should I be worried?"},
+      {"speaker": "Voice Assistant", "text": "Hypertension affects about 1 in 3 adults and is one of the most treatable chronic conditions when caught early."},
+      {"speaker": "Dr. Patel", "text": "That's correct, and I was about to reassure you of exactly that."},
+      {"speaker": "Eli", "text": "Okay good, that actually helps to hear."}
+    ]
+  },
+  {
+    "id": "s010",
+    "context": "Two friends, Cleo and Marcus, are trying to decide what to cook for dinner. They've both had long days and are a bit indecisive.",
+    "option_a": [
+      {"speaker": "Cleo", "text": "I don't know, I kind of want something comforting but not too heavy."},
+      {"speaker": "Marcus", "text": "Pasta? Or maybe soup?"},
+      {"speaker": "Voice Assistant", "text": "You have chicken broth, pasta, and vegetables in the fridge — a minestrone would take about 30 minutes."},
+      {"speaker": "Cleo", "text": "Oh perfect, yes let's do that."},
+      {"speaker": "Marcus", "text": "Great, I'll start chopping."}
+    ],
+    "option_b": [
+      {"speaker": "Cleo", "text": "I don't know, I kind of want something comforting but not too heavy."},
+      {"speaker": "Marcus", "text": "Pasta? Or maybe soup?"},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Cleo", "text": "Actually soup sounds perfect. Something with veggies."},
+      {"speaker": "Marcus", "text": "Minestrone? I think we have everything for it."}
+    ]
+  },
+  {
+    "id": "s011",
+    "context": "A manager, Helen, is giving performance feedback to an employee, David, in a one-on-one meeting.",
+    "option_a": [
+      {"speaker": "Helen", "text": "Overall your work this quarter has been strong, but I want to talk about meeting deadlines."},
+      {"speaker": "David", "text": "Yeah, I know. The last two projects ran late. I've been trying to figure out why."},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Helen", "text": "What do you think the root cause is? Is it scoping, interruptions, or something else?"},
+      {"speaker": "David", "text": "Honestly, I think I'm underestimating how long reviews take."}
+    ],
+    "option_b": [
+      {"speaker": "Helen", "text": "Overall your work this quarter has been strong, but I want to talk about meeting deadlines."},
+      {"speaker": "David", "text": "Yeah, I know. The last two projects ran late. I've been trying to figure out why."},
+      {"speaker": "Voice Assistant", "text": "David's last three projects were completed an average of 4 days after the original deadline."},
+      {"speaker": "Helen", "text": "I have that data already, thank you."},
+      {"speaker": "David", "text": "...Right. As I was saying, I think it's the review stage."}
+    ]
+  },
+  {
+    "id": "s012",
+    "context": "Two siblings, Mia and Jake, are catching up over the phone. Jake has just shared some exciting personal news.",
+    "option_a": [
+      {"speaker": "Jake", "text": "I finally proposed to Lauren last night. She said yes!"},
+      {"speaker": "Mia", "text": "Oh my gosh, Jake! I'm so happy for you both. Tell me everything!"},
+      {"speaker": "Voice Assistant", "text": "Congratulations! Average engagement periods last 12 to 18 months. Would you like venue suggestions?"},
+      {"speaker": "Jake", "text": "Uh... not right now, thanks."},
+      {"speaker": "Mia", "text": "Yeah we're just celebrating right now!"}
+    ],
+    "option_b": [
+      {"speaker": "Jake", "text": "I finally proposed to Lauren last night. She said yes!"},
+      {"speaker": "Mia", "text": "Oh my gosh, Jake! I'm so happy for you both. Tell me everything!"},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Jake", "text": "I took her to the restaurant where we had our first date. It was perfect."},
+      {"speaker": "Mia", "text": "That is so romantic. She must have loved it."}
+    ]
+  },
+  {
+    "id": "s013",
+    "context": "Two students, Omar and Priya, are studying for an exam together and have hit a tricky question.",
+    "option_a": [
+      {"speaker": "Omar", "text": "I keep getting confused between mitosis and meiosis. What's the key difference again?"},
+      {"speaker": "Priya", "text": "One produces two cells, the other produces four — but I always forget which is which."},
+      {"speaker": "Voice Assistant", "text": "Mitosis produces two genetically identical diploid cells. Meiosis produces four genetically unique haploid cells."},
+      {"speaker": "Omar", "text": "Oh right, that's the one for reproduction."},
+      {"speaker": "Priya", "text": "Yes — meiosis is for sex cells, mitosis is for growth."}
+    ],
+    "option_b": [
+      {"speaker": "Omar", "text": "I keep getting confused between mitosis and meiosis. What's the key difference again?"},
+      {"speaker": "Priya", "text": "One produces two cells, the other produces four — but I always forget which is which."},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Omar", "text": "Let me look it up in the notes — I think we covered it in week three."},
+      {"speaker": "Priya", "text": "Yeah, and there was a diagram that made it clearer."}
+    ]
+  },
+  {
+    "id": "s014",
+    "context": "A podcast host, Nina, is mid-interview with a guest, Professor Webb, about climate change.",
+    "option_a": [
+      {"speaker": "Nina", "text": "So what do you think is the single biggest barrier to climate action right now?"},
+      {"speaker": "Prof. Webb", "text": "Honestly, I think it's political will more than technology. We have most of the tools we need."},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Nina", "text": "That's interesting — do you think public pressure can shift that?"},
+      {"speaker": "Prof. Webb", "text": "It has before. Look at the ozone layer — that was a policy success driven by public awareness."}
+    ],
+    "option_b": [
+      {"speaker": "Nina", "text": "So what do you think is the single biggest barrier to climate action right now?"},
+      {"speaker": "Prof. Webb", "text": "Honestly, I think it's political will more than technology. We have most of the tools we need."},
+      {"speaker": "Voice Assistant", "text": "According to a 2023 Pew Research survey, 67% of adults globally say their government isn't doing enough on climate change."},
+      {"speaker": "Nina", "text": "That's a striking number — does that align with your experience, Professor?"},
+      {"speaker": "Prof. Webb", "text": "It does, and it points to exactly the gap I'm describing."}
+    ]
+  },
+  {
+    "id": "s015",
+    "context": "Two friends, Grace and Leo, are at a trivia night at a bar. Their team is stuck on a question.",
+    "option_a": [
+      {"speaker": "Grace", "text": "What year did the Berlin Wall fall? Was it '89 or '91?"},
+      {"speaker": "Leo", "text": "I'm almost certain it's '89, but I don't want to get us wrong."},
+      {"speaker": "Voice Assistant", "text": "The Berlin Wall fell on November 9, 1989."},
+      {"speaker": "Grace", "text": "Perfect, writing that down."},
+      {"speaker": "Leo", "text": "Good thing we have this thing."}
+    ],
+    "option_b": [
+      {"speaker": "Grace", "text": "What year did the Berlin Wall fall? Was it '89 or '91?"},
+      {"speaker": "Leo", "text": "I'm almost certain it's '89, but I don't want to get us wrong."},
+      {"speaker": "Voice Assistant", "text": null},
+      {"speaker": "Grace", "text": "Go with your gut — you're usually right about history stuff."},
+      {"speaker": "Leo", "text": "Okay, '89. Final answer."}
+    ]
+  }
+]
