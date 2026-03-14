@@ -3,16 +3,14 @@ import json
 import csv
 import os
 import random
-import sqlite3
-import threading
+import psycopg2
+import psycopg2.extras
 from datetime import datetime, timezone
 from contextlib import contextmanager
 
 # ── Config ────────────────────────────────────────────────────────────────────
 SCENARIOS_FILE = "scenarios.json"
-DB_FILE        = "voiceiq.db"
-
-_db_lock = threading.Lock()
+DATABASE_URL   = st.secrets["DATABASE_URL"]
 
 # ── Page setup ────────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -78,58 +76,63 @@ html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; background-colo
 # ── Database ──────────────────────────────────────────────────────────────────
 @contextmanager
 def get_db():
-    conn = sqlite3.connect(DB_FILE, check_same_thread=False)
-    conn.row_factory = sqlite3.Row
+    conn = psycopg2.connect(DATABASE_URL, cursor_factory=psycopg2.extras.RealDictCursor)
     try:
         yield conn
+        conn.commit()
+    except Exception:
+        conn.rollback()
+        raise
     finally:
         conn.close()
 
 
 def init_db():
     with get_db() as conn:
-        conn.execute("""
-            CREATE TABLE IF NOT EXISTS preferences (
-                id           INTEGER PRIMARY KEY AUTOINCREMENT,
-                timestamp    TEXT NOT NULL,
-                scenario_id  TEXT NOT NULL,
-                labeler      TEXT,
-                prompt       TEXT,
-                chosen       TEXT,
-                rejected     TEXT,
-                skipped      INTEGER DEFAULT 0,
-                meta_json    TEXT
-            )
-        """)
-        conn.commit()
+        with conn.cursor() as cur:
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS preferences (
+                    id           SERIAL PRIMARY KEY,
+                    timestamp    TEXT NOT NULL,
+                    scenario_id  TEXT NOT NULL,
+                    labeler      TEXT,
+                    prompt       TEXT,
+                    chosen       TEXT,
+                    rejected     TEXT,
+                    skipped      INTEGER DEFAULT 0,
+                    meta_json    TEXT
+                )
+            """)
 
 
 def get_labeled_ids() -> set:
     """Scenario IDs with at least one non-skipped label globally."""
     with get_db() as conn:
-        rows = conn.execute(
-            "SELECT DISTINCT scenario_id FROM preferences WHERE skipped = 0"
-        ).fetchall()
+        with conn.cursor() as cur:
+            cur.execute("SELECT DISTINCT scenario_id FROM preferences WHERE skipped = 0")
+            rows = cur.fetchall()
     return {r["scenario_id"] for r in rows}
 
 
 def get_labeled_ids_by(labeler: str) -> set:
     """All scenario IDs this labeler has acted on (including skips)."""
     with get_db() as conn:
-        rows = conn.execute(
-            "SELECT DISTINCT scenario_id FROM preferences WHERE labeler = ?",
-            (labeler,)
-        ).fetchall()
+        with conn.cursor() as cur:
+            cur.execute(
+                "SELECT DISTINCT scenario_id FROM preferences WHERE labeler = %s",
+                (labeler,)
+            )
+            rows = cur.fetchall()
     return {r["scenario_id"] for r in rows}
 
 
 def save_record(record: dict):
-    with _db_lock:
-        with get_db() as conn:
-            conn.execute("""
+    with get_db() as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
                 INSERT INTO preferences
                     (timestamp, scenario_id, labeler, prompt, chosen, rejected, skipped, meta_json)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
             """, (
                 record["timestamp"],
                 record["scenario_id"],
@@ -140,12 +143,13 @@ def save_record(record: dict):
                 1 if record.get("skipped") else 0,
                 json.dumps(record.get("metadata", {})),
             ))
-            conn.commit()
 
 
 def export_jsonl() -> str:
     with get_db() as conn:
-        rows = conn.execute("SELECT * FROM preferences ORDER BY id").fetchall()
+        with conn.cursor() as cur:
+            cur.execute("SELECT * FROM preferences ORDER BY id")
+            rows = cur.fetchall()
     lines = [json.dumps({
         "timestamp":   r["timestamp"],
         "scenario_id": r["scenario_id"],
@@ -161,9 +165,9 @@ def export_jsonl() -> str:
 
 def export_csv() -> str:
     with get_db() as conn:
-        rows = conn.execute(
-            "SELECT * FROM preferences WHERE skipped = 0 ORDER BY id"
-        ).fetchall()
+        with conn.cursor() as cur:
+            cur.execute("SELECT * FROM preferences WHERE skipped = 0 ORDER BY id")
+            rows = cur.fetchall()
     if not rows:
         return ""
     import io
@@ -361,10 +365,13 @@ st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
 st.markdown("---")
 
 with get_db() as conn:
-    total_labels  = conn.execute("SELECT COUNT(*) FROM preferences WHERE skipped=0").fetchone()[0]
-    total_skipped = conn.execute("SELECT COUNT(*) FROM preferences WHERE skipped=1").fetchone()[0]
-    my_labels     = conn.execute("SELECT COUNT(*) FROM preferences WHERE labeler=? AND skipped=0", (labeler,)).fetchone()[0]
-    num_labelers  = conn.execute("SELECT COUNT(DISTINCT labeler) FROM preferences").fetchone()[0]
+    with conn.cursor() as cur:
+        cur.execute("SELECT COUNT(*) AS n FROM preferences WHERE skipped=0")
+        total_labels = cur.fetchone()["n"]
+        cur.execute("SELECT COUNT(*) AS n FROM preferences WHERE labeler=%s AND skipped=0", (labeler,))
+        my_labels = cur.fetchone()["n"]
+        cur.execute("SELECT COUNT(DISTINCT labeler) AS n FROM preferences")
+        num_labelers = cur.fetchone()["n"]
 
 st.markdown(f"""
 <div class="metric-row">
